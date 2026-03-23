@@ -2,7 +2,6 @@ package com.example.spring_boot.service;
 
 import com.example.spring_boot.model.Student;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
