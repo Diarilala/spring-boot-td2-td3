@@ -1,6 +1,5 @@
 package com.example.spring_boot.controller;
 
-import com.example.spring_boot.service.StudentService;
 import com.example.spring_boot.service.WelcomeService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
