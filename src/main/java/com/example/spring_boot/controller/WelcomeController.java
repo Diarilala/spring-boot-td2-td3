@@ -24,6 +24,6 @@ public class WelcomeController {
         }
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body("Welcome " + name);
+                .body(welcomeService.welcomeMessage(name));
     }
 }
