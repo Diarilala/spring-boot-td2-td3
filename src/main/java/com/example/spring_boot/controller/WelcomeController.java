@@ -15,7 +15,7 @@ public class WelcomeController {
     private final WelcomeService welcomeService;
 
     @GetMapping("/welcome")
-    public ResponseEntity<String> welcome(@RequestParam String name) {
+    public ResponseEntity<String> welcome(@RequestParam(required = false, defaultValue = "") String name) {
 
         if(name.isEmpty()){
             return ResponseEntity

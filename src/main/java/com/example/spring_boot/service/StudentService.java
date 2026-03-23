@@ -17,10 +17,14 @@ public class StudentService {
         return studentStorage;
     }
 
-    public String getStoredLastName() {
+    public List<String> getStoredLastName() {
         return studentStorage.stream()
                 .map(Student::getLastName)
-                .collect(Collectors.joining(", "));
+                .toList();
+    }
+
+    public List<Student> getStudentList() {
+        return studentStorage;
     }
 
 }
