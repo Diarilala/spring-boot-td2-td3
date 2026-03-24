@@ -35,6 +35,7 @@ public class StudentController {
             if(acceptHeader.equals("text/plain") || acceptHeader.equals("application/json")) {
                 return ResponseEntity
                         .status(HttpStatus.OK)
+                        .header("content-type", "text/plain", "application/json")
                         .body(studentService.getStudentList());
             } else if (acceptHeader.isEmpty()) {
                 return ResponseEntity.badRequest().build();
