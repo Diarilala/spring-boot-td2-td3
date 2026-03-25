@@ -1,7 +1,9 @@
 package com.example.spring_boot.controller;
 
+import com.example.spring_boot.exception.BadRequestException;
 import com.example.spring_boot.model.Student;
 import com.example.spring_boot.service.StudentService;
+import com.example.spring_boot.validator.StudentValidator;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +17,16 @@ import java.util.List;
 public class StudentController {
 
     private final StudentService studentService;
+    private final StudentValidator studentValidator;
 
     @PostMapping
-    public ResponseEntity<List<Student>> addStudent(@RequestBody List<Student> students) {
+    public ResponseEntity<?> addStudent(@RequestBody List<Student> students) {
         List<Student> storedStudents;
         try {
+            studentValidator.validateStudentList(students);
             storedStudents = studentService.addStudents(students);
+        } catch (BadRequestException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }

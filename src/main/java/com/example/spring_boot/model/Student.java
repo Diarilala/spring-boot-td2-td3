@@ -8,5 +8,9 @@ public class Student {
     private String reference;
     private String firstName;
     private String lastName;
-    private int age;
+    private Integer age;
+
+    public Student(String reference) {
+        this.reference = reference;
+    }
 }
